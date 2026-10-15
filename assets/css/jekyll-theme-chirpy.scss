@@ -18,9 +18,8 @@
    thelaptopdaemon — Tokyo Night (acentos morado / verde / amarillo)
    ========================================================== */
 
-html,
-html[data-mode='dark'],
-html:not([data-mode]) {
+:root[data-bs-theme='dark'],
+:root:not([data-bs-theme]) {
   /* ---------- Paleta ---------- */
   --tn-bg: #1a1b26;
   --tn-bg-dark: #16161e;
