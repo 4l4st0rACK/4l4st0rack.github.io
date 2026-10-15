@@ -1,0 +1,292 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* ==========================================================
+   thelaptopdaemon — Tokyo Night (acentos morado / verde / amarillo)
+   ========================================================== */
+
+html,
+html[data-mode='dark'],
+html:not([data-mode]) {
+  /* ---------- Paleta ---------- */
+  --tn-bg: #1a1b26;
+  --tn-bg-dark: #16161e;
+  --tn-bg-hl: #292e42;
+  --tn-border: #2f3549;
+  --tn-fg: #c0caf5;
+  --tn-fg-dim: #a9b1d6;
+  --tn-comment: #565f89;
+  --tn-purple: #bb9af7;
+  --tn-purple-dim: #6e5a9e;
+  --tn-blue: #7aa2f7;
+  --tn-cyan: #7dcfff;
+  --tn-op: #89ddff;
+  --tn-green: #9ece6a;
+  --tn-teal: #73daca;
+  --tn-yellow: #e0af68;
+  --tn-orange: #ff9e64;
+  --tn-red: #f7768e;
+
+  /* ---------- Base ---------- */
+  --main-bg: var(--tn-bg);
+  --mask-bg: var(--tn-bg-hl);
+  --main-border-color: var(--tn-border);
+
+  --text-color: var(--tn-fg-dim);
+  --text-muted-color: var(--tn-comment);
+  --text-muted-highlight-color: var(--tn-fg-dim);
+  --heading-color: var(--tn-fg);
+  --label-color: var(--tn-fg-dim);
+  --blockquote-border-color: var(--tn-purple);
+  --blockquote-text-color: var(--tn-fg-dim);
+  --link-color: var(--tn-purple);
+  --link-underline-color: var(--tn-purple-dim);
+  --button-bg: var(--tn-bg-dark);
+  --btn-border-color: var(--tn-border);
+  --card-header-bg: var(--tn-bg-hl);
+  --checkbox-checked-color: var(--tn-green);
+  --menu-bg: var(--tn-bg-dark);
+  --menu-border-color: var(--tn-border);
+  --menu-highlight-bg: rgb(187 154 247 / 10%);
+
+  /* ---------- Sidebar ---------- */
+  --site-title-color: var(--tn-fg);
+  --site-subtitle-color: var(--tn-comment);
+  --sidebar-bg: var(--tn-bg-dark);
+  --sidebar-border-color: var(--tn-border);
+  --sidebar-muted-color: var(--tn-comment);
+  --sidebar-active-color: var(--tn-green);
+  --sidebar-hover-bg: var(--tn-bg-hl);
+  --sidebar-btn-bg: var(--tn-bg-hl);
+  --sidebar-btn-color: var(--tn-fg-dim);
+  --avatar-border-color: var(--tn-purple);
+
+  /* ---------- Topbar / búsqueda ---------- */
+  --topbar-bg: rgb(26 27 38 / 75%);
+  --search-border-color: var(--tn-border);
+  --search-icon-color: var(--tn-comment);
+  --input-focus-border-color: var(--tn-purple);
+
+  /* ---------- Home / posts ---------- */
+  --post-list-text-color: var(--tn-fg-dim);
+  --btn-paginator-hover-color: var(--tn-bg-hl);
+  --toc-highlight: var(--tn-green);
+  --toc-popup-border-color: var(--tn-border);
+  --tag-hover: rgb(187 154 247 / 15%);
+  --tb-odd-bg: var(--tn-bg-dark);
+  --tb-even-bg: var(--tn-bg);
+  --tb-border-color: var(--tn-border);
+  --footnote-target-bg: rgb(187 154 247 / 25%);
+  --card-bg: var(--tn-bg-dark);
+  --card-hover-bg: var(--tn-bg-hl);
+  --kbd-bg-color: var(--tn-bg-hl);
+  --kbd-text-color: var(--tn-fg);
+
+  /* Cajas tip / info / warning / danger */
+  --prompt-tip-bg: rgb(158 206 106 / 12%);
+  --prompt-tip-icon-color: var(--tn-green);
+  --prompt-info-bg: rgb(122 162 247 / 12%);
+  --prompt-info-icon-color: var(--tn-blue);
+  --prompt-warning-bg: rgb(224 175 104 / 12%);
+  --prompt-warning-icon-color: var(--tn-yellow);
+  --prompt-danger-bg: rgb(247 118 142 / 12%);
+  --prompt-danger-icon-color: var(--tn-red);
+
+  /* Tags / categorías / archivo */
+  --tag-border: var(--tn-border);
+  --categories-border: var(--tn-border);
+  --categories-hover-bg: var(--tn-bg-hl);
+  --timeline-node-bg: var(--tn-purple);
+  --timeline-color: var(--tn-border);
+  --timeline-year-dot-color: var(--tn-purple);
+
+  /* ---------- Bloques de código ---------- */
+  --language-border-color: var(--tn-border);
+  --highlight-bg-color: var(--tn-bg-dark);
+  --highlighter-rouge-color: var(--tn-green); /* código en línea */
+  --highlight-lineno-color: var(--tn-comment);
+  --inline-code-bg: rgb(187 154 247 / 10%);
+  --code-color: var(--tn-fg);
+  --code-header-text-color: var(--tn-comment);
+  --code-header-muted-color: var(--tn-bg-hl);
+  --code-header-icon-color: var(--tn-comment);
+  --clipboard-checked-color: var(--tn-green);
+  --filepath-text-color: var(--tn-yellow);
+
+  ::selection {
+    background: rgb(187 154 247 / 30%);
+    color: var(--tn-fg);
+  }
+
+  /* ---------- Toque hacker en los títulos de los posts ---------- */
+  .content h2::before {
+    content: '# ';
+    color: var(--tn-purple);
+  }
+
+  .content h3::before {
+    content: '## ';
+    color: var(--tn-green);
+  }
+
+  /* ---------- Resaltado de sintaxis (Tokyo Night) ---------- */
+  .highlight,
+  .highlight .w {
+    color: var(--tn-fg);
+    background-color: var(--tn-bg-dark);
+  }
+
+  .highlight .err {
+    color: var(--tn-red);
+    background-color: transparent;
+  }
+
+  /* Prompt y salida en bloques ```console */
+  .highlight .gp {
+    color: var(--tn-green);
+    font-weight: bold;
+  }
+
+  .highlight .go {
+    color: var(--tn-fg-dim);
+  }
+
+  /* Comentarios */
+  .highlight .c,
+  .highlight .ch,
+  .highlight .cd,
+  .highlight .cm,
+  .highlight .cpf,
+  .highlight .c1,
+  .highlight .cs {
+    color: var(--tn-comment);
+    font-style: italic;
+  }
+
+  .highlight .cp {
+    color: var(--tn-cyan);
+  }
+
+  /* Palabras clave */
+  .highlight .k,
+  .highlight .kn,
+  .highlight .kp,
+  .highlight .kr,
+  .highlight .kv,
+  .highlight .sa {
+    color: var(--tn-purple);
+  }
+
+  .highlight .kc,
+  .highlight .kd,
+  .highlight .kt {
+    color: var(--tn-cyan);
+  }
+
+  /* Strings */
+  .highlight .s,
+  .highlight .sb,
+  .highlight .sc,
+  .highlight .dl,
+  .highlight .sd,
+  .highlight .s2,
+  .highlight .sh,
+  .highlight .sx,
+  .highlight .s1,
+  .highlight .ss {
+    color: var(--tn-green);
+  }
+
+  .highlight .se,
+  .highlight .sr {
+    color: var(--tn-cyan);
+  }
+
+  .highlight .si {
+    color: var(--tn-yellow);
+  }
+
+  /* Números */
+  .highlight .m,
+  .highlight .mb,
+  .highlight .mf,
+  .highlight .mh,
+  .highlight .mi,
+  .highlight .il,
+  .highlight .mo,
+  .highlight .mx {
+    color: var(--tn-orange);
+  }
+
+  /* Nombres */
+  .highlight .nf,
+  .highlight .fm {
+    color: var(--tn-blue);
+  }
+
+  .highlight .nb,
+  .highlight .bp {
+    color: var(--tn-cyan);
+  }
+
+  .highlight .nc,
+  .highlight .nn,
+  .highlight .no {
+    color: var(--tn-yellow);
+  }
+
+  .highlight .na {
+    color: var(--tn-teal);
+  }
+
+  .highlight .nt {
+    color: var(--tn-red);
+  }
+
+  .highlight .nv,
+  .highlight .vi,
+  .highlight .vg,
+  .highlight .vc {
+    color: var(--tn-fg);
+  }
+
+  /* Operadores y puntuación */
+  .highlight .o,
+  .highlight .ow {
+    color: var(--tn-op);
+  }
+
+  .highlight .p,
+  .highlight .pi {
+    color: var(--tn-fg-dim);
+  }
+
+  /* Diffs */
+  .highlight .gi {
+    color: var(--tn-green);
+  }
+
+  .highlight .gd {
+    color: var(--tn-red);
+    background-color: rgb(247 118 142 / 10%);
+  }
+
+  .highlight .gh {
+    color: var(--tn-blue);
+    background-color: transparent;
+    font-weight: bold;
+  }
+}
