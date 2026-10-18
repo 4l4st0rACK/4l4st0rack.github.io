@@ -1,0 +1,39 @@
+{%- if page.collection == 'en' -%}
+  {%- assign pool = site.en -%}
+  {%- assign t_prev = 'Previous level' -%}
+  {%- assign t_next = 'Next level' -%}
+  {%- assign t_soon = 'Coming soon' -%}
+  {%- assign t_nav = 'Series navigation' -%}
+{%- else -%}
+  {%- assign pool = site.posts -%}
+  {%- assign t_prev = 'Nivel anterior' -%}
+  {%- assign t_next = 'Siguiente nivel' -%}
+  {%- assign t_soon = 'Próximamente' -%}
+  {%- assign t_nav = 'Navegación de la serie' -%}
+{%- endif -%}
+{%- assign serie_docs = pool | where: 'serie', page.serie -%}
+{%- assign n_prev = page.nivel | minus: 1 -%}
+{%- assign n_next = page.nivel | plus: 1 -%}
+{%- assign prev_doc = serie_docs | where: 'nivel', n_prev | first -%}
+{%- assign next_doc = serie_docs | where: 'nivel', n_next | first -%}
+<nav class="series-nav" aria-label="{{ t_nav }}">
+  {%- if prev_doc %}
+  <a class="series-prev" href="{{ prev_doc.url | relative_url }}">
+    <span class="label">← {{ t_prev }}</span>
+    <span class="title">{{ prev_doc.title }}</span>
+  </a>
+  {%- else %}
+  <span class="series-prev empty"></span>
+  {%- endif %}
+  {%- if next_doc %}
+  <a class="series-next" href="{{ next_doc.url | relative_url }}">
+    <span class="label">{{ t_next }} →</span>
+    <span class="title">{{ next_doc.title }}</span>
+  </a>
+  {%- else %}
+  <span class="series-next soon">
+    <span class="label">{{ t_next }} →</span>
+    <span class="title">{{ t_soon }}</span>
+  </span>
+  {%- endif %}
+</nav>
