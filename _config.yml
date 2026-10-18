@@ -182,6 +182,9 @@ collections:
   tabs:
     output: true
     sort_by: order
+  en:
+    output: true
+    permalink: /en/posts/:name/
 
 defaults:
   - scope:
@@ -204,6 +207,14 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: ""
+      type: en
+    values:
+      layout: post
+      lang: en
+      comments: true
+      toc: true
 
 sass:
   style: compressed
