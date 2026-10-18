@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>The Laptop Daemon</title>
+  <rect width="512" height="512" rx="96" fill="#1a1b26"/>
+  <path d="M132 150 C108 106 84 74 40 40 C60 92 76 132 90 180 Z" fill="#e0af68"/>
+  <path d="M380 150 C404 106 428 74 472 40 C452 92 436 132 422 180 Z" fill="#e0af68"/>
+  <rect x="78" y="146" width="356" height="236" rx="30" fill="#16161e" stroke="#bb9af7" stroke-width="48"/>
+  <polyline points="156,214 224,264 156,314" fill="none" stroke="#9ece6a" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="262" y1="318" x2="352" y2="318" stroke="#9ece6a" stroke-width="48" stroke-linecap="round"/>
+  <rect x="30" y="414" width="452" height="58" rx="29" fill="#bb9af7"/>
+</svg>
