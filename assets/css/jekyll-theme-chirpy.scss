@@ -289,3 +289,29 @@
     font-weight: bold;
   }
 }
+
+/* ---------- Iconos propios para cada categoría ---------- */
+.categories .card-header span:has(> a[href$="/categories/linux/"]) > i::before {
+  content: "\f17c"; /* pingüino de Linux */
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+}
+
+.categories .card-header span:has(> a[href$="/categories/hacking-web/"]) > i::before {
+  content: "\f0ac"; /* globo */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.categories .card-header span:has(> a[href$="/categories/infraestructura/"]) > i::before {
+  content: "\f6ff"; /* red */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.categories .card-header span:has(> a[href$="/categories/linux/"]) > i,
+.categories .card-header span:has(> a[href$="/categories/hacking-web/"]) > i,
+.categories .card-header span:has(> a[href$="/categories/infraestructura/"]) > i {
+  color: var(--tn-green);
+}
+
