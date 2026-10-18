@@ -315,3 +315,39 @@
   color: var(--tn-green);
 }
 
+/* ---------- Selector de idioma ES / EN en los posts ---------- */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.25rem 0 1rem;
+  padding: 0.2rem 0.3rem 0.2rem 0.75rem;
+  border: 1px solid var(--tn-border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+
+  i {
+    color: var(--tn-comment);
+    margin-right: 0.25rem;
+  }
+
+  a {
+    padding: 0.15rem 0.8rem;
+    border-radius: 999px;
+    color: var(--tn-fg-dim);
+    border-bottom: none;
+    text-decoration: none !important;
+
+    &:hover {
+      color: var(--tn-fg);
+      background: var(--tn-bg-hl);
+    }
+
+    &.active {
+      background: rgb(187 154 247 / 15%);
+      color: var(--tn-purple);
+      pointer-events: none;
+    }
+  }
+}
+
