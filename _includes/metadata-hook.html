@@ -1,0 +1,28 @@
+{%- if page.ref and page.layout == 'post' -%}
+  {%- if page.collection == 'en' -%}
+    {%- assign es_doc = site.posts | where: 'ref', page.ref | first -%}
+    {%- assign en_doc = page -%}
+  {%- else -%}
+    {%- assign es_doc = page -%}
+    {%- assign en_doc = site.en | where: 'ref', page.ref | first -%}
+  {%- endif -%}
+  {%- if es_doc and en_doc %}
+  <link rel="alternate" hreflang="es" href="{{ es_doc.url | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ en_doc.url | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ es_doc.url | absolute_url }}">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var title = document.querySelector('article header h1');
+      if (!title) return;
+      var nav = document.createElement('nav');
+      nav.className = 'lang-switch';
+      nav.setAttribute('aria-label', 'Idioma / Language');
+      nav.innerHTML =
+        '<i class="fas fa-language" aria-hidden="true"></i>' +
+        '<a href="{{ es_doc.url | relative_url }}" hreflang="es" lang="es"{% if page.collection != 'en' %} class="active" aria-current="page"{% endif %}>Español</a>' +
+        '<a href="{{ en_doc.url | relative_url }}" hreflang="en" lang="en"{% if page.collection == 'en' %} class="active" aria-current="page"{% endif %}>English</a>';
+      title.insertAdjacentElement('afterend', nav);
+    });
+  </script>
+  {%- endif -%}
+{%- endif -%}
