@@ -416,3 +416,7 @@
   }
 }
 
+/* ---------- Ocultar "Further Reading" en las páginas en inglés ---------- */
+html[lang='en'] #related-posts {
+  display: none;
+}
