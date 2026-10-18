@@ -351,3 +351,68 @@
   }
 }
 
+/* ---------- Navegación entre niveles de una serie ---------- */
+.content .series-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2.5rem 0 1rem;
+
+  > a,
+  > span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--tn-border);
+    border-radius: 0.6rem;
+    background: var(--tn-bg-dark);
+    text-decoration: none !important;
+  }
+
+  .label {
+    font-size: 0.8rem;
+    color: var(--tn-comment);
+  }
+
+  .title {
+    color: var(--tn-fg);
+    font-weight: 600;
+  }
+
+  a:hover {
+    border-color: var(--tn-purple);
+
+    .title {
+      color: var(--tn-purple);
+    }
+  }
+
+  .series-next {
+    grid-column: 2;
+    text-align: right;
+  }
+
+  .soon .title {
+    color: var(--tn-comment);
+    font-style: italic;
+    font-weight: normal;
+  }
+
+  .empty {
+    visibility: hidden;
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+
+    .series-next {
+      grid-column: 1;
+    }
+
+    .empty {
+      display: none;
+    }
+  }
+}
+
