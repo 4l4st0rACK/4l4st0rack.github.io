@@ -1,15 +1,25 @@
 {%- if page.collection == 'en' -%}
   {%- assign pool = site.en -%}
-  {%- assign t_prev = 'Previous level' -%}
-  {%- assign t_next = 'Next level' -%}
   {%- assign t_soon = 'Coming soon' -%}
   {%- assign t_nav = 'Series navigation' -%}
+  {%- if page.serie == 'htb' -%}
+    {%- assign t_prev = 'Previous box' -%}
+    {%- assign t_next = 'Next box' -%}
+  {%- else -%}
+    {%- assign t_prev = 'Previous level' -%}
+    {%- assign t_next = 'Next level' -%}
+  {%- endif -%}
 {%- else -%}
   {%- assign pool = site.posts -%}
-  {%- assign t_prev = 'Nivel anterior' -%}
-  {%- assign t_next = 'Siguiente nivel' -%}
   {%- assign t_soon = 'Próximamente' -%}
   {%- assign t_nav = 'Navegación de la serie' -%}
+  {%- if page.serie == 'htb' -%}
+    {%- assign t_prev = 'Máquina anterior' -%}
+    {%- assign t_next = 'Siguiente máquina' -%}
+  {%- else -%}
+    {%- assign t_prev = 'Nivel anterior' -%}
+    {%- assign t_next = 'Siguiente nivel' -%}
+  {%- endif -%}
 {%- endif -%}
 {%- assign serie_docs = pool | where: 'serie', page.serie -%}
 {%- assign n_prev = page.nivel | minus: 1 -%}
